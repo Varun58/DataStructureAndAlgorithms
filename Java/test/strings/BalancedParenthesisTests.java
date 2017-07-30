@@ -34,6 +34,7 @@ public class BalancedParenthesisTests {
 	
 	@Test
 	public void testBalancedParenthesisWithValidCases() {
+		
 		Assert.assertTrue(BalancedParanthesis.balancedParenthesis("()"));
 		Assert.assertTrue(BalancedParanthesis.balancedParenthesis("({})"));
 		Assert.assertTrue(BalancedParanthesis.balancedParenthesis("[{()}]"));
