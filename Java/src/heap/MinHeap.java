@@ -47,13 +47,6 @@ public class MinHeap {
 		return (pos * 2) + 2;
 	}
 
-	/*private boolean isLeaf(int pos) {
-		if (pos > size / 2 && pos <= size) {
-			return true;
-		}
-		return false;
-	}*/
-
 	private void minHeapify(int pos) {
 		
 		int smallest = pos;
