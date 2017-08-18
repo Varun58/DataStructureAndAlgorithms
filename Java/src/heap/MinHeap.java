@@ -1,73 +1,106 @@
 package heap;
 
+import java.util.Arrays;
+
 public class MinHeap {
+	
+	//http://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/
+	//Method 1 (Use Bubble k times)
+	//Method 2 (Use Sorting)
+	//Method 3 Use temporary array
+	//Method 4 Min or Max Heap
+	
+	/*
+	1) Heap Sort: Heap Sort uses Binary Heap to sort an array in O(nLogn) time.
+
+	2) Priority Queue: Priority queues can be efficiently implemented using Binary Heap because it supports insert(), delete() and extractmax(), decreaseKey() operations in O(logn) time. Binomoial Heap and Fibonacci Heap are variations of Binary Heap. These variations perform union also efficiently.
+
+	3) Graph Algorithms: The priority queues are especially used in Graph Algorithms like Dijkstra’s Shortest Path and Prim’s Minimum Spanning Tree.
+	
+	4) Many problems can be efficiently solved using Heaps. See following for example.
+		a) K’th Largest Element in an array.
+		b) Sort an almost sorted array/
+		c) Merge K Sorted Arrays.
+	*/
 
 	private int[] heap;
-	private int size;
+	public int size;
 	private int maxSize;
 
-	private static final int FRONT = 1;
+	private static final int FRONT = 0;
 
-	public MinHeap(int maxSize) {
-		this.maxSize = maxSize;
+	public MinHeap(int capacity) {
+		this.maxSize = capacity;
 		this.size = 0;
-		this.heap = new int[maxSize + 1];
-		heap[0] = Integer.MIN_VALUE;
+		this.heap = new int[capacity];
 	}
 
 	private int parent(int pos) {
-		return pos / 2;
+		return (pos-1) / 2;
 	}
 
 	private int left(int pos) {
-		return pos * 2;
+		return (pos * 2) + 1;
 	}
 
 	private int right(int pos) {
-		return pos * 2 + 1;
+		return (pos * 2) + 2;
 	}
 
-	private boolean isLeaf(int pos) {
-		if (pos >= size / 2 && pos <= size) {
+	/*private boolean isLeaf(int pos) {
+		if (pos > size / 2 && pos <= size) {
 			return true;
 		}
 		return false;
-	}
+	}*/
 
 	private void minHeapify(int pos) {
-		if (!isLeaf(pos)) {
-			if (heap[pos] > heap[left(pos)] || heap[pos] > heap[right(pos)]) {
-				if (heap[left(pos)] < heap[right(pos)]) {
-					swap(pos, left(pos));
-					minHeapify(left(pos));
-				} else {
-					swap(pos, right(pos));
-					minHeapify(right(pos));
-				}
-			}
+		
+		int smallest = pos;
+		int left = left(pos);
+		int right = right(pos);
+		
+		if (left<size &&  heap[smallest] > heap[left]) {
+			smallest = left;
 		}
+		
+		if(right<size &&  heap[smallest] > heap[right]){
+			smallest = right;
+		}
+		
+		if(pos!=smallest) {
+			swap(pos, smallest);
+			minHeapify(smallest);	
+		}
+		
 	}
 
 	public void minHeap() {
-		for (int i = size / 2; i >= 1; i--) {
+		for (int i = (size-1) / 2; i >= 0; i--) {
 			minHeapify(i);
 		}
 	}
 
-	public int remove() {
+	public int extractMin() {
+		if(size == 0 ) {
+			return -1;
+		}
 		int popped = heap[FRONT];
-		heap[FRONT] = heap[size--];
+		heap[FRONT] = heap[--size];
 		minHeapify(FRONT);
 		return popped;
 	}
 
 	public void insert(int element) {
-		heap[++size] = element;
-		int current = size;
+		size++;
+		int current = size-1;
 
-		while (heap[current] < heap[parent(current)]) {
-			swap(current, parent(current));
+		while ( current>0 && element < heap[parent(current)]) {
+			heap[current] = heap[parent(current)];
+			current = parent(current);
 		}
+		
+		heap[current] = element;
 	}
 
 	private void swap(int fpos, int spos) {
@@ -99,6 +132,13 @@ public class MinHeap {
         minHeap.minHeap();
  
         minHeap.print();
-        System.out.println("The Min val is " + minHeap.remove());
+        System.out.println("The Min val is " + minHeap.extractMin());
 	}
+
+	@Override
+	public String toString() {
+		return "MinHeap [heap=" + Arrays.toString(heap) + ", size=" + size + ", maxSize=" + maxSize + "]";
+	}
+	
+	
 }
