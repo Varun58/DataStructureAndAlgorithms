@@ -5,10 +5,6 @@ import java.util.PriorityQueue;
 
 public class Pipes {
 
-	public static void main(String[] args) {
-
-	}
-
 	public static int[] getJoinedPipes(int[] input1) {
 
 		if (input1 == null || input1.length <= 1) {
@@ -36,5 +32,34 @@ public class Pipes {
 			op[i] = al.get(i);
 		}
 		return op;
+	}
+
+	public static int minCost(int arr[], int n) {
+		if (arr == null || n <= 1) {
+			return 0;
+		}
+
+		PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+		int result = 0;
+
+		for (int i = 0; i <n; i++) {
+			pq.offer(arr[i]);
+		}
+
+		while (pq.size() > 1) {
+			int first = pq.poll();
+			int second = pq.poll();
+			result += first + second;
+			pq.offer(first + second);
+		}
+
+		return result;
+	}
+	
+	public static void main(String[] args) {
+		int len[] = {4, 3, 2, 6};
+	    int size = len.length;
+	    System.out.println("Total cost for connecting ropes is "+ minCost(len, size));
 	}
 }
