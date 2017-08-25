@@ -104,8 +104,8 @@ public class MinHeap {
 	
 	public void print() {
 		
-		for(int i=1;i<=size/2;i++) {
-			System.out.println("Parent : "+heap[i] + " Left : "+ heap[2*i] + " right : "+ heap[2*i+1] );
+		for(int i=0;i<=size/2;i++) {
+			System.out.println("Parent : "+heap[i] + " Left : "+ heap[2*i+1] + " right : "+ heap[2*i+2] );
 		}
 		
 	}
