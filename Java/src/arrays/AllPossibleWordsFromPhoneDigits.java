@@ -15,7 +15,7 @@ public class AllPossibleWordsFromPhoneDigits {
 			return;
 		}
 
-		for (int i = 0; i < hashTable[number[currDigit]].length; i++) {
+		for (int i = 0; i <hashTable[number[currDigit]].length; i++) {
 			if (number[i] == 0 || number[i] == 1)
 				return;
 			output[currDigit] = hashTable[number[currDigit]][i];
