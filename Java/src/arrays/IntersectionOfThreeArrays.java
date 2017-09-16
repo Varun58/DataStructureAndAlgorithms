@@ -26,11 +26,11 @@ public class IntersectionOfThreeArrays {
 				k++;
 			}
 
-			else if (arr1[i] < arr2[j] && arr1[i] < arr3[k]) {
+			else if (arr1[i] < arr2[j]) {
 				i++;
 			}
 
-			else if (arr1[i] > arr2[j] && arr2[j] < arr3[k]) {
+			else if (arr2[j] < arr3[k]) {
 				j++;
 			} else {
 				k++;
@@ -76,7 +76,8 @@ public class IntersectionOfThreeArrays {
 		return commonInAll;
 	}
 
-	public static List<Integer> getExactlyCommonElementsIn2ArrayFrom3SortedArraysUsingSingleLoop(int[] arr1, int[] arr2, int[] arr3) {
+	public static List<Integer> getExactlyCommonElementsIn2ArrayFrom3SortedArraysUsingSingleLoop(int[] arr1, int[] arr2,
+			int[] arr3) {
 
 		if ((arr1 == null || arr1.length == 0) || (arr2 == null || arr2.length == 0)
 				|| (arr3 == null || arr3.length == 0))
@@ -88,35 +89,31 @@ public class IntersectionOfThreeArrays {
 
 		while (i < arr1.length && j < arr2.length && k < arr3.length) {
 
-			if (!(arr1[i] == arr2[j] && arr2[j] == arr3[k])){
-				
-				if(arr1[i] == arr2[j])
-				{
-				
+			if (!(arr1[i] == arr2[j] && arr2[j] == arr3[k])) {
+
+				if (arr1[i] == arr2[j]) {
+
 					i++;
 					j++;
 					common.add(arr1[i]);
 				}
-				if(arr2[j] == arr3[k])
-				{
+				if (arr2[j] == arr3[k]) {
 					common.add(arr2[j]);
 					j++;
 					k++;
 				}
-					
-				if(arr3[k] == arr1[i])
-				{
+
+				if (arr3[k] == arr1[i]) {
 					common.add(arr3[k]);
 					i++;
 					k++;
 				}
 			}
-			if ((arr1[i] == arr2[j] && arr2[j] == arr3[k])){
+			if ((arr1[i] == arr2[j] && arr2[j] == arr3[k])) {
 				i++;
 				j++;
 				k++;
-			}
-			else if (arr1[i] < arr2[j] && arr1[i] < arr3[k]) {
+			} else if (arr1[i] < arr2[j] && arr1[i] < arr3[k]) {
 				i++;
 			}
 
