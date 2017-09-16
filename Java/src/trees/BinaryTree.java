@@ -8,7 +8,11 @@ public class BinaryTree {
 		this.root = new Node(data);
 	}
 
- public static  BinaryTree getBT() {
+ public BinaryTree() {
+		// TODO Auto-generated constructor stub
+	}
+
+public static  BinaryTree getBT() {
 		BinaryTree tree = new BinaryTree(1);
 
 		tree.root.left = new Node(2);

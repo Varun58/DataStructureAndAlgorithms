@@ -78,6 +78,14 @@ public class InsertNodeAtPosition {
 class Node {
     int data;
     Node next;
+    
+    public Node() {
+		// TODO Auto-generated constructor stub
+	}
+    
+	public Node(int data2) {
+		this.data = data;
+	}
 	@Override
 	public String toString() {
 		return "Node [data=" + data + ", next=" + next + "]";
