@@ -1,8 +1,5 @@
 package trees;
 
-import java.util.ArrayList;
-import java.util.Stack;
-
 public class InorderTraversalTrees {
 
 	public void inOrderTraversal(Node node) {
