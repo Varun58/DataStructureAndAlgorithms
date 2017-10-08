@@ -19,6 +19,15 @@ public class BinaryTree {
 		return tree;
 	}
 
+	static void print(Node node) {
+		if (node != null) {
+			System.out.print(node.data+ " ");
+			print(node.left);
+			print(node.right);
+		}
+
+	}
+	
 	public static void main(String[] args) {
 		BinaryTree tree = new BinaryTree();
 		tree.root = new Node(1);
@@ -36,6 +45,7 @@ class Node {
 	int data;
 	Node left;
 	Node right;
+	Node nextRight;
 
 	public Node(int data) {
 		this.data = data;
