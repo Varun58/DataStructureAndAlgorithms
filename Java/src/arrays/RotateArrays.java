@@ -2,41 +2,56 @@ package arrays;
 
 public class RotateArrays {
 
-	public static void main(String[] args) {
+  // https://www.youtube.com/watch?v=SA867FvqHrM
 
-		int[][] arr = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+  // sol 1 : transpose and reverse the elements in the rows
+  // sol 2 : reverse 4 values in the outer matrix
+  public static void main(String[] args) {
 
-		rotateArrayBy90Degree(arr);
-	}
+    int[][] arr = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
 
-	public static int[][] rotateArrayBy90Degree(int arr[][]) {
-		int n = arr.length - 1;
+    rotateArrayBy90Degree(arr);
+  }
 
-		for (int i = 0; i < n / 2; i++) {
+  public static int[][] rotateArrayBy90Degree(int arr[][]) {
+    int n = arr.length;
 
-			for (int j = 0; j < n; j++) {
+    // transpose
+    for (int i = 0; i < n; i++) {
+      for (int j = i; j < n; j++) {
+        int temp = arr[i][j];
+        arr[i][j] = arr[j][i];
+        arr[j][i] = temp;
+      }
+    }
 
-				int temp = arr[i][j];
-				arr[i][j] = arr[n - j][i];
-				arr[n - j][i] = arr[n - i][n - j];
-				arr[n - i][n - j] = arr[j][n - i];
-				arr[j][n - i] = temp;
-			}
+    // reverse elements in the rows
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n / 2; j++) {
+        int temp = arr[i][j];
+        arr[i][j] = arr[i][n - j - 1];
+        arr[i][n - j - 1] = temp;
+      }
+    }
+    return arr;
+  }
 
-		}
+  public static int[][] rotateArrayBy90Degree2(int arr[][]) {
+    int n = arr.length - 1;
 
-		return arr;
-	}
+    for (int i = 0; i < n / 2; i++) {
 
-	int[][] rotate(int[][] input) {
+      for (int j = 0; j < n; j++) {
 
-		int n = input.length;
-		int m = input[0].length;
-		int[][] output = new int[m][n];
+        int temp = arr[i][j];
+        arr[i][j] = arr[n - j][i];
+        arr[n - j][i] = arr[n - i][n - j];
+        arr[n - i][n - j] = arr[j][n - i];
+        arr[j][n - i] = temp;
+      }
 
-		for (int i = 0; i < n; i++)
-			for (int j = 0; j < m; j++)
-				output[j][n - 1 - i] = input[i][j];
-		return output;
-	}
+    }
+
+    return arr;
+  }
 }
