@@ -8,10 +8,9 @@ public class MaximumSumSubArray {
     System.out.println(maxSubArray2(input));
   }
 
-  // Greedy
+  // Sol1: Greedy
   public static int maxSubArray(int[] nums) {
     int n = nums.length;
-
     int currSum = nums[0];
     int maxSum = nums[0];
 
@@ -23,7 +22,7 @@ public class MaximumSumSubArray {
     return maxSum;
   }
 
-  // Dynamic Programming ( Kadanes Algorithm)
+  // Sol2: Dynamic Programming ( Kadanes Algorithm)
   public static int maxSubArray2(int[] nums) {
     int n = nums.length;
     int maxSum = nums[0];
@@ -37,4 +36,6 @@ public class MaximumSumSubArray {
 
     return maxSum;
   }
+
+  // Sol3: https://www.geeksforgeeks.org/maximum-subarray-sum-using-divide-and-conquer-algorithm/
 }
