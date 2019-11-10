@@ -5,12 +5,12 @@ public class BTtoDoublyLinkedList {
 	public static void main(String[] args) {
 		BinaryTree bt = BinaryTree.getBT();
 
-		Node head = null;
-		Node prev = null;
+		TreeNode head = null;
+		TreeNode prev = null;
 
 		converToDoublyLinkedList(bt.root, head, prev);
 
-		Node curr = head;
+		TreeNode curr = head;
 
 		prev.right = head;
 		head.left = prev;
@@ -26,24 +26,24 @@ public class BTtoDoublyLinkedList {
 
 	}
 
-	public static void converToDoublyLinkedList(Node node, Node head, Node prev) {
+	public static void converToDoublyLinkedList(TreeNode treeNode, TreeNode head, TreeNode prev) {
 
-		if (node == null)
+		if (treeNode == null)
 			return;
 
-		converToDoublyLinkedList(node.left, head, prev);
+		converToDoublyLinkedList(treeNode.left, head, prev);
 
 		if (prev == null) {
-			head = node;
+			head = treeNode;
 		} else {
 
-			node.left = prev;
-			prev.right = node;
+			treeNode.left = prev;
+			prev.right = treeNode;
 
 		}
-		prev = node;
+		prev = treeNode;
 
-		converToDoublyLinkedList(node.right, head, prev);
+		converToDoublyLinkedList(treeNode.right, head, prev);
 	}
 
 }

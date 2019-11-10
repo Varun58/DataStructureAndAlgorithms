@@ -6,30 +6,30 @@ public class IsomorphicTree {
 		BinaryTree tree = new BinaryTree();
 
 		// Let us create trees shown in above diagram
-		tree.root = new Node(1);
-		tree.root.left = new Node(2);
-		tree.root.right = new Node(3);
-		tree.root.left.left = new Node(4);
-		tree.root.left.right = new Node(5);
-		tree.root.right.left = new Node(6);
-		tree.root.left.right.left = new Node(7);
-		tree.root.left.right.right = new Node(8);
+		tree.root = new TreeNode(1);
+		tree.root.left = new TreeNode(2);
+		tree.root.right = new TreeNode(3);
+		tree.root.left.left = new TreeNode(4);
+		tree.root.left.right = new TreeNode(5);
+		tree.root.right.left = new TreeNode(6);
+		tree.root.left.right.left = new TreeNode(7);
+		tree.root.left.right.right = new TreeNode(8);
 
 		BinaryTree tree1 = new BinaryTree();
 
-		tree1.root = new Node(1);
-		tree1.root.left = new Node(3);
-		tree1.root.right = new Node(2);
-		tree1.root.right.left = new Node(4);
-		tree1.root.right.right = new Node(5);
-		tree1.root.left.right = new Node(6);
-		tree1.root.right.right.left = new Node(8);
-		tree1.root.right.right.right = new Node(7);
+		tree1.root = new TreeNode(1);
+		tree1.root.left = new TreeNode(3);
+		tree1.root.right = new TreeNode(2);
+		tree1.root.right.left = new TreeNode(4);
+		tree1.root.right.right = new TreeNode(5);
+		tree1.root.left.right = new TreeNode(6);
+		tree1.root.right.right.left = new TreeNode(8);
+		tree1.root.right.right.right = new TreeNode(7);
 
 		System.out.println(isIsomorphic(tree.root, tree1.root));
 	}
 
-	public static boolean isIsomorphic(Node n1, Node n2) {
+	public static boolean isIsomorphic(TreeNode n1, TreeNode n2) {
 		if (n1 == null && n2 == null) {
 			return true;
 		}

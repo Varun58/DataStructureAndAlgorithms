@@ -2,11 +2,11 @@ package trees;
 
 public class InorderTraversalTrees {
 
-	static void inOrderTraversal(Node node) {
-		if (node != null) {
-			inOrderTraversal(node.left);
-			System.out.print(node.data+ " ");
-			inOrderTraversal(node.right);
+	static void inOrderTraversal(TreeNode treeNode) {
+		if (treeNode != null) {
+			inOrderTraversal(treeNode.left);
+			System.out.print(treeNode.data+ " ");
+			inOrderTraversal(treeNode.right);
 		}
 
 	}

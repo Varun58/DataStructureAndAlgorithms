@@ -7,24 +7,24 @@ public class MaximumValueInBT {
 
 	public static int max = 0;
 
-	public static void getMax(Node node) {
-		if (node == null)
+	public static void getMax(TreeNode treeNode) {
+		if (treeNode == null)
 			return;
-		if (node.data > max) {
-			max = node.data;
+		if (treeNode.data > max) {
+			max = treeNode.data;
 		}
-		getMax(node.left);
-		getMax(node.right);
+		getMax(treeNode.left);
+		getMax(treeNode.right);
 		return;
 	}
 
-	public static void getMaxNonRecursive(Node node) {
+	public static void getMaxNonRecursive(TreeNode treeNode) {
 
-		Queue<Node> q = new LinkedList<Node>();
-		q.add(node);
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.add(treeNode);
 		int max = 0;
 		while (!q.isEmpty()) {
-			Node qnode = q.poll();
+			TreeNode qnode = q.poll();
 
 			/*
 			 * if (qnode == null) { continue; }
@@ -46,13 +46,13 @@ public class MaximumValueInBT {
 	}
 
 	public static void main(String[] args) {
-		Node root = new Node(1);
-		root.left = new Node(2);
-		root.right = new Node(3);
-		root.left.left = new Node(4);
-		root.left.right = new Node(5);
-		root.right.left = new Node(6);
-		root.right.right = new Node(7);
+		TreeNode root = new TreeNode(1);
+		root.left = new TreeNode(2);
+		root.right = new TreeNode(3);
+		root.left.left = new TreeNode(4);
+		root.left.right = new TreeNode(5);
+		root.right.left = new TreeNode(6);
+		root.right.right = new TreeNode(7);
 		getMax(root);
 		System.out.println("Recursive solution gives max value :" + max);
 		System.out.println("");

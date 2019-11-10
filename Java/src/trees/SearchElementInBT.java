@@ -2,17 +2,17 @@ package trees;
 
 public class SearchElementInBT {
 
-	public static boolean searchElement(Node node, int element) {
+	public static boolean searchElement(TreeNode treeNode, int element) {
 
-		if (node == null) {
+		if (treeNode == null) {
 			return false;
 		}
 
-		if (node.data == element) {
+		if (treeNode.data == element) {
 			return true;
 		}
 
-		return searchElement(node.left, element) || searchElement(node.right, element);
+		return searchElement(treeNode.left, element) || searchElement(treeNode.right, element);
 	}
 
 	public static void main(String[] args) {

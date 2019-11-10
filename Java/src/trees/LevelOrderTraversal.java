@@ -9,31 +9,31 @@ public class LevelOrderTraversal {
 
 	}
 
-	public void printNodesLevelUsingHeight(Node node) {
-		int h = height(node);
+	public void printNodesLevelUsingHeight(TreeNode treeNode) {
+		int h = height(treeNode);
 		for (int i = 1; i <=h; i++) {
-			printLevelOrder(node, i);
+			printLevelOrder(treeNode, i);
 		}
 
 	}
 
-	public void printLevelOrder(Node node, int level) {
-		if (node == null) {
+	public void printLevelOrder(TreeNode treeNode, int level) {
+		if (treeNode == null) {
 			return;
 		} else if (level == 1) {
-			System.out.print(node.data+ " " );
+			System.out.print(treeNode.data+ " " );
 		} else if (level > 1) {
-			printLevelOrder(node.left, level - 1);
-			printLevelOrder(node.right, level - 1);
+			printLevelOrder(treeNode.left, level - 1);
+			printLevelOrder(treeNode.right, level - 1);
 		}
 	}
 
-	public int height(Node node) {
-		if (node == null) {
+	public int height(TreeNode treeNode) {
+		if (treeNode == null) {
 			return 0;
 		} else {
-			int lh = height(node.left);
-			int rh = height(node.right);
+			int lh = height(treeNode.left);
+			int rh = height(treeNode.right);
 			if (lh > rh)
 				return lh + 1;
 			return rh + 1;

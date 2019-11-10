@@ -2,50 +2,50 @@ package trees;
 
 public class InsertingElementInBT {
 
-	public static Node insertingElementInBT(Node node, int data) {
+	public static TreeNode insertingElementInBT(TreeNode treeNode, int data) {
 
-		if (node == null) {
-			node = new Node(data);
-			return node;
+		if (treeNode == null) {
+			treeNode = new TreeNode(data);
+			return treeNode;
 		}
 
-		if (node.left == null) {
+		if (treeNode.left == null) {
 			
-			node.left = new Node(data);
-			return node;
+			treeNode.left = new TreeNode(data);
+			return treeNode;
 			
-		} else if(node.left != null)  {
+		} else if(treeNode.left != null)  {
 			
-			insertingElementInBT(node.left, data);	
+			insertingElementInBT(treeNode.left, data);
 		} 
-		else if (node.right == null) {
+		else if (treeNode.right == null) {
 			
-			node.right = new Node(data);
-			return node;
+			treeNode.right = new TreeNode(data);
+			return treeNode;
 			
-		} else if(node.right != null)  {
+		} else if(treeNode.right != null)  {
 			
-			insertingElementInBT(node.right, data);	
+			insertingElementInBT(treeNode.right, data);
 		}
-		return node;
+		return treeNode;
 	}
 
-	public static void inOrderTraversal(Node node) {
-		if (node != null) {
+	public static void inOrderTraversal(TreeNode treeNode) {
+		if (treeNode != null) {
 			
-			System.out.println("Parent: "+node.data + " ");
+			System.out.println("Parent: "+ treeNode.data + " ");
 			
 			
-			if(node.left != null ) {
-				System.out.println("Left: "+node.left.data + " ");	
+			if(treeNode.left != null ) {
+				System.out.println("Left: "+ treeNode.left.data + " ");
 			}
-			if(node.right!= null) {
-				System.out.println("Right: "+node.right.data + " ");
+			if(treeNode.right!= null) {
+				System.out.println("Right: "+ treeNode.right.data + " ");
 			}
 			
-			inOrderTraversal(node.left);
+			inOrderTraversal(treeNode.left);
 			
-			inOrderTraversal(node.right);
+			inOrderTraversal(treeNode.right);
 		}
 
 	}

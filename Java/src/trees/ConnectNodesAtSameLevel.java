@@ -7,19 +7,19 @@ public class ConnectNodesAtSameLevel {
 
 	public static void main(String[] args) {
 		BinaryTree bt = new BinaryTree();
-		bt.root = new Node(1);
-		bt.root.left = new Node(2);
-		bt.root.right = new Node(3);
-		bt.root.left.left = new Node(4);
-		bt.root.left.right = new Node(5);
-		bt.root.right.left = new Node(6);
-		bt.root.right.right = new Node(7);
+		bt.root = new TreeNode(1);
+		bt.root.left = new TreeNode(2);
+		bt.root.right = new TreeNode(3);
+		bt.root.left.left = new TreeNode(4);
+		bt.root.left.right = new TreeNode(5);
+		bt.root.right.left = new TreeNode(6);
+		bt.root.right.right = new TreeNode(7);
 		connectNodesAtSameLevelUsingQueue(bt.root);
 		System.out.println();
 		printAllNodesNextRight(bt.root);
 	}
 
-	private static void printAllNodesNextRight(Node root) {
+	private static void printAllNodesNextRight(TreeNode root) {
 		if(root == null) return;
 		
 		System.out.println(root.data +" ==> "+root.nextRight);
@@ -27,9 +27,9 @@ public class ConnectNodesAtSameLevel {
 		printAllNodesNextRight(root.right);
 	}
 
-	public static void connectNodesAtSameLevelUsingQueue(Node n) {
+	public static void connectNodesAtSameLevelUsingQueue(TreeNode n) {
 
-		Queue<Node> q = new LinkedList<Node>();
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
 		q.add(n);
 		int level = 0;
 		while (!q.isEmpty()) {
@@ -40,33 +40,33 @@ public class ConnectNodesAtSameLevel {
 
 			while (size-- > 0) {
 
-				Node node = q.poll();
-				Node nextR = null;
+				TreeNode treeNode = q.poll();
+				TreeNode nextR = null;
 
 				if (size != 0) {
 					nextR = q.peek();
 				}
 				
 				if (nextR != null) {
-					node.nextRight = nextR;
-					System.out.print("\n Next Right of  " + node.data + " is : " + nextR.data);
+					treeNode.nextRight = nextR;
+					System.out.print("\n Next Right of  " + treeNode.data + " is : " + nextR.data);
 				} else {
-					System.out.print("\n Next Right of  " + node.data + " is : " + -1);
+					System.out.print("\n Next Right of  " + treeNode.data + " is : " + -1);
 				}
 
-				if (null != node.left) {
-					q.add(node.left);
+				if (null != treeNode.left) {
+					q.add(treeNode.left);
 				}
 
-				if (null != node.right) {
-					q.add(node.right);
+				if (null != treeNode.right) {
+					q.add(treeNode.right);
 				}
 			}
 			level++;
 		}
 	}
 	
-	public static void connectNodesAtSameLevelRec(Node n) {
+	public static void connectNodesAtSameLevelRec(TreeNode n) {
 		
 	}
 }

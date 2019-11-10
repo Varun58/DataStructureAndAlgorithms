@@ -2,52 +2,52 @@ package trees;
 
 public class BinaryTree {
 
-	Node root;
+	TreeNode root;
 
 	public BinaryTree() {
 	}
 
 	public static BinaryTree getBT() {
 		BinaryTree tree = new BinaryTree();
-		tree.root = new Node(1);
-		tree.root.left = new Node(2);
-		tree.root.right = new Node(3);
-		tree.root.left.left = new Node(4);
-		tree.root.left.right = new Node(5);
-		tree.root.right.left = new Node(6);
-		tree.root.right.right = new Node(7);
+		tree.root = new TreeNode(1);
+		tree.root.left = new TreeNode(2);
+		tree.root.right = new TreeNode(3);
+		tree.root.left.left = new TreeNode(4);
+		tree.root.left.right = new TreeNode(5);
+		tree.root.right.left = new TreeNode(6);
+		tree.root.right.right = new TreeNode(7);
 		return tree;
 	}
 
-	static void print(Node node) {
-		if (node != null) {
-			System.out.print(node.data+ " ");
-			print(node.left);
-			print(node.right);
+	static void print(TreeNode treeNode) {
+		if (treeNode != null) {
+			System.out.print(treeNode.data+ " ");
+			print(treeNode.left);
+			print(treeNode.right);
 		}
 
 	}
 	
 	public static void main(String[] args) {
 		BinaryTree tree = new BinaryTree();
-		tree.root = new Node(1);
-		tree.root.left = new Node(2);
-		tree.root.right = new Node(3);
-		tree.root.left.left = new Node(4);
-		tree.root.left.right = new Node(5);
-		tree.root.right.left = new Node(6);
-		tree.root.right.right = new Node(7);
+		tree.root = new TreeNode(1);
+		tree.root.left = new TreeNode(2);
+		tree.root.right = new TreeNode(3);
+		tree.root.left.left = new TreeNode(4);
+		tree.root.left.right = new TreeNode(5);
+		tree.root.right.left = new TreeNode(6);
+		tree.root.right.right = new TreeNode(7);
 	}
 
 }
 
-class Node {
+class TreeNode {
 	int data;
-	Node left;
-	Node right;
-	Node nextRight;
+	TreeNode left;
+	TreeNode right;
+	TreeNode nextRight;
 
-	public Node(int data) {
+	public TreeNode(int data) {
 		this.data = data;
 	}
 

@@ -7,18 +7,18 @@ public class PrintNodesAtSameLevel {
 
 	public static void main(String[] args) {
 		BinaryTree bt = new BinaryTree();
-		bt.root = new Node(1);
-		bt.root.left = new Node(2);
-		bt.root.right = new Node(3);
-		bt.root.left.left = new Node(4);
-		bt.root.left.right = new Node(5);
-		bt.root.right.left = new Node(6);
-		bt.root.right.right = new Node(7);
+		bt.root = new TreeNode(1);
+		bt.root.left = new TreeNode(2);
+		bt.root.right = new TreeNode(3);
+		bt.root.left.left = new TreeNode(4);
+		bt.root.left.right = new TreeNode(5);
+		bt.root.right.left = new TreeNode(6);
+		bt.root.right.right = new TreeNode(7);
 		printNodesByDepth(bt.root);
 	}
 
-	public static void printNodesByDepth(Node n) {
-		Queue<Node> q = new LinkedList<Node>();
+	public static void printNodesByDepth(TreeNode n) {
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
 		q.add(n);
 		int level = 1;
 		while (!q.isEmpty()) {
@@ -29,15 +29,15 @@ public class PrintNodesAtSameLevel {
 
 			while (size-- > 0) {
 
-				Node node = q.poll();
-				System.out.print(" "+ node.data + " ");
+				TreeNode treeNode = q.poll();
+				System.out.print(" "+ treeNode.data + " ");
 
-				if (null != node.left) {
-					q.add(node.left);
+				if (null != treeNode.left) {
+					q.add(treeNode.left);
 				}
 
-				if (null != node.right) {
-					q.add(node.right);
+				if (null != treeNode.right) {
+					q.add(treeNode.right);
 				}
 			}
 			level++;

@@ -10,13 +10,13 @@ public class MirrorOfBT {
 		bt.print(bt.root);
 	}
 
-	static Node mirror(Node root) {
+	static TreeNode mirror(TreeNode root) {
 		if (root == null) {
 			return null;
 		}
 
-		Node left = mirror(root.left);
-		Node right = mirror(root.right);
+		TreeNode left = mirror(root.left);
+		TreeNode right = mirror(root.right);
 		
 		root.left = right;
 		root.right = left;
