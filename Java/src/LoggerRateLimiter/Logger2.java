@@ -1,33 +1,26 @@
-package Logger;
+package LoggerRateLimiter;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Logger {
-  private Queue<Log> queue;
-  private Set<String> messages;
+public class Logger2 {
 
-  public Logger() {
-    queue = new LinkedList<>();
-    messages = new HashSet<>();
+  private Map<String, Integer> shouldPrintMap;
+
+  public Logger2() {
+    shouldPrintMap = new HashMap<>();
   }
 
   public boolean shouldPrintMessage(int timestamp, String message) {
-    while(!queue.isEmpty() && queue.peek().timestamp <= timestamp - 10 ) {
-      String expiredMessage = queue.remove().message;
-      messages.remove(expiredMessage);
+    int goodTime = shouldPrintMap.getOrDefault(message, 0);
+    if (timestamp < goodTime) {
+      return false;
     }
 
-    if(!messages.contains(message)) {
-      queue.offer(new Log(timestamp, message));
-      messages.add(message);
-      return true;
-    }
+    shouldPrintMap.put(message, timestamp + 10);
+    return true;
+  }
 
-    return false;
-}
 
   public static void main(String[] args) {
     Logger logger = new Logger();
@@ -49,15 +42,5 @@ public class Logger {
 
 // logging string "foo" at timestamp 11
     System.out.println(logger.shouldPrintMessage(11,"foo")); // returns true
-  }
-
-  class Log {
-    int timestamp;
-    String message;
-
-    Log(int timestamp, String message) {
-      this.timestamp = timestamp;
-      this.message = message;
-    }
   }
 }
