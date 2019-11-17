@@ -16,8 +16,6 @@ public class LinkedListDown {
 		public String toString() {
 			return "Node [next=" + next + ", down=" + down + ", data=" + data + "]";
 		}
-
-		
 	}
 
 	@Override
