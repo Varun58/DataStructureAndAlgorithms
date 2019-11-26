@@ -12,18 +12,18 @@ public class TwoStringAnagrams {
 			return true;
 		}
 
-		if (str1 == null && str2 != null) {
+		if (str1 == null) {
 			return false;
 		}
 
-		if (str1 != null && str2 == null) {
+		if (str2 == null) {
 			return false;
 		}
 
 		if (str1.equals(str2))
 			return true;
 
-		int charTable[] = new int[128];
+		int[] charTable = new int[128];
 
 		for (char character : str1.toCharArray()) {
 			charTable[character]++;
@@ -45,18 +45,18 @@ public class TwoStringAnagrams {
 			return true;
 		}
 
-		if (str1 == null && str2 != null) {
+		if (str1 == null) {
 			return false;
 		}
 
-		if (str1 != null && str2 == null) {
+		if (str2 == null) {
 			return false;
 		}
 
 		if (str1.equals(str2))
 			return true;
 
-		Map<Character, Integer> charMap = new HashMap<Character, Integer>();
+		Map<Character, Integer> charMap = new HashMap<>();
 
 		for (char character : str1.toCharArray()) {
 			if (charMap.containsKey(character)) {
@@ -87,26 +87,23 @@ public class TwoStringAnagrams {
 			return true;
 		}
 
-		if (str1 == null && str2 != null) {
+		if (str1 == null) {
 			return false;
 		}
 
-		if (str1 != null && str2 == null) {
+		if (str2 == null) {
 			return false;
 		}
 
 		if (str1.equals(str2))
 			return true;
 
-		char strArr1[] = str1.toCharArray();
-		char strArr2[] = str2.toCharArray();
+		char[] strArr1 = str1.toCharArray();
+		char[] strArr2 = str2.toCharArray();
 
 		Arrays.sort(strArr1);
 		Arrays.sort(strArr2);
-		
-		if ((new String(strArr1)).equals(new String(strArr2)))
-			return true;
 
-		return false;
+		return (new String(strArr1)).equals(new String(strArr2));
 	}
 }

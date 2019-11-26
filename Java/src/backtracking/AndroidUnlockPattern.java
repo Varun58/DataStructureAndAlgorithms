@@ -6,7 +6,7 @@ public class AndroidUnlockPattern {
     System.out.println(numberOfPatterns(1, 4));
   }
 
-  // https://medium.com/@rebeccahezhang/leetcode-351-android-unlock-patterns-d9bae4a8a958
+  // https://massivealgorithms.blogspot.com/2016/06/leetcode-351-android-unlock-patterns.html
   public static int numberOfPatterns(int m, int n) {
     int skip[][] = new int[10][10];
 
