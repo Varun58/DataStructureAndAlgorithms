@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.Map;
 
 public class MinAreaRectangle {
-
   public static void main(String[] args) {
     int[][] points = {{1, 1}, {1, 3}, {3, 1}, {3, 3}, {2, 2}};
     System.out.println(minAreaRectangle(points));
