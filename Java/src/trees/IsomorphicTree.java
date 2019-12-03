@@ -5,7 +5,6 @@ public class IsomorphicTree {
 	public static void main(String[] args) {
 		BinaryTree tree = new BinaryTree();
 
-		// Let us create trees shown in above diagram
 		tree.root = new TreeNode(1);
 		tree.root.left = new TreeNode(2);
 		tree.root.right = new TreeNode(3);
