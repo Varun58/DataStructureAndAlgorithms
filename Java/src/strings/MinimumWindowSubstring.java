@@ -10,6 +10,45 @@ public class MinimumWindowSubstring {
   }
 
   public static String minWindow(String s, String t) {
+    int len = t.length(), start = 0, end = 0;
+
+    String ans = "";
+    int min = Integer.MAX_VALUE;
+
+    int[] count = new int[128];
+
+    for (int i = 0; i < t.length(); i++) {
+      count[t.charAt(i)]++;
+    }
+
+    while (end < s.length()) {
+      int index = s.charAt(end);
+      if (count[index] > 0) {
+        len--;
+      }
+
+      count[index]--;
+
+      while (len == 0) {
+        if (min > end - start + 1) {
+            min = end - start + 1;
+            ans = s.substring(start, end + 1);
+        }
+
+        count[s.charAt(start)]++;
+        if(count[s.charAt(start)]> 0) {
+          len++;
+        }
+
+        start++;
+      }
+      end++;
+    }
+
+    return ans;
+  }
+
+  public static String minWindow2(String s, String t) {
     if (s.length() == 0 || t.length() == 0) {
       return "";
     }
