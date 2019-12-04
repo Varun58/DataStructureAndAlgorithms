@@ -57,10 +57,10 @@ public class FlipEquivalentBinaryTrees {
     if (root != null) {
       al.add(root.data);
 
-      int lv = root.left != null ? root.left.data: -1;
-      int rv = root.right != null ? root.right.data: -1;
+      int lv = root.left != null ? root.left.data : -1;
+      int rv = root.right != null ? root.right.data : -1;
 
-      if(lv < rv) {
+      if (lv < rv) {
         al.add(lv);
         al.add(rv);
       } else {
