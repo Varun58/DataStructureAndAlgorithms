@@ -4,44 +4,60 @@ public class JumpGame {
 
   public static void main(String[] args) {
     int[] nums = {2, 3, 1, 1, 4};
-    System.out.println(canJump(nums));
+    System.out.println(new JumpGame().canJump(nums));
   }
 
-  public static boolean canJump(int[] nums) {
-    if (nums == null || nums.length == 0) {
-      return true;
+  public boolean canJump(int[] nums) {
+    int lastPos = nums.length - 1;
+    for (int i = nums.length - 1; i >= 0; i--) {
+      if (i + nums[i] >= lastPos) {
+        lastPos = i;
+      }
     }
+    return lastPos == 0;
+  }
 
-    boolean[][] possibleJumps = new boolean[nums.length][nums.length];
+  public boolean canJump2(int[] nums) {
+    int maxPos = 0;
+    for (int i = 0; i <= nums.length - 1; i++) {
+      if (i > maxPos) {
+        return false;
+      }
+      maxPos = Math.max(maxPos, nums[i] + i);
+    }
+    return true;
+  }
+
+  enum Index {
+    UNKNOWN, GOOD, BAD;
+  }
+
+  Index[] memo;
+
+  public boolean canJump3(int[] nums) {
+    memo = new Index[nums.length];
     for (int i = 0; i < nums.length; i++) {
-      for (int j = 0; j < nums.length; j++) {
-        if (i == j) {
-          possibleJumps[i][j] = true;
-        } else if (i < j) {
-          possibleJumps[i][j] = false;
-        } else {
-          int temp = nums[i];
-          while (temp > 0 && j < nums.length - 1) {
-            possibleJumps[i][j++] = true;
-            temp--;
-          }
-        }
+      memo[i] = Index.UNKNOWN;
+    }
+
+    memo[memo.length - 1] = Index.GOOD;
+    return canJumpFromPosition(0, nums);
+  }
+
+  public boolean canJumpFromPosition(int position, int nums[]) {
+    if (memo[position] != Index.UNKNOWN) {
+      return memo[position] == Index.GOOD;
+    }
+
+    int furthestJump = Math.min(position + nums[position], nums.length - 1);
+    for (int nextPosition = position + 1; nextPosition <= furthestJump; nextPosition++) {
+      if (canJumpFromPosition(nextPosition, nums)) {
+        memo[position] = Index.GOOD;
+        return true;
       }
     }
 
-    int k = nums.length - 1;
-    int l = nums.length - 1;
-    while (possibleJumps[k][l]) {
-      if (possibleJumps[k][l - 1]) {
-        l--;
-        continue;
-      }
-
-      if (possibleJumps[k - 1][l]) {
-        k--;
-      }
-    }
-
-    return k == 0 && l == 0;
+    memo[position] = Index.BAD;
+    return false;
   }
 }
