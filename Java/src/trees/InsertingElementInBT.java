@@ -33,14 +33,14 @@ public class InsertingElementInBT {
 	public static void inOrderTraversal(TreeNode treeNode) {
 		if (treeNode != null) {
 			
-			System.out.println("Parent: "+ treeNode.data + " ");
+			System.out.println("Parent: "+ treeNode.val + " ");
 			
 			
 			if(treeNode.left != null ) {
-				System.out.println("Left: "+ treeNode.left.data + " ");
+				System.out.println("Left: "+ treeNode.left.val + " ");
 			}
 			if(treeNode.right!= null) {
-				System.out.println("Right: "+ treeNode.right.data + " ");
+				System.out.println("Right: "+ treeNode.right.val + " ");
 			}
 			
 			inOrderTraversal(treeNode.left);

@@ -36,7 +36,7 @@ public class IsomorphicTree {
 		if (n1 == null || n2 == null)
 			return false;
 
-		if (n1.data != n2.data)
+		if (n1.val != n2.val)
 			return false;
 
 		return (isIsomorphic(n1.left, n2.left) && isIsomorphic(n1.right, n2.right))

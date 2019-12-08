@@ -21,7 +21,7 @@ public class LevelOrderTraversal {
 		if (treeNode == null) {
 			return;
 		} else if (level == 1) {
-			System.out.print(treeNode.data+ " " );
+			System.out.print(treeNode.val + " " );
 		} else if (level > 1) {
 			printLevelOrder(treeNode.left, level - 1);
 			printLevelOrder(treeNode.right, level - 1);

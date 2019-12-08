@@ -11,7 +11,7 @@ public class SwapAdjacentLR {
   }
 
   //https://leetcode.com/problems/swap-adjacent-in-lr-string/discuss/321932/One-pass-O(n)-Python-beat-99-easy-to-understand
-  public boolean canTransform(String start, String end) {
+  public boolean canTransform1(String start, String end) {
     Map<Character, Integer> map = new HashMap<>();
     map.put('R', 1);
     map.put('X', 0);
@@ -27,6 +27,24 @@ public class SwapAdjacentLR {
     }
 
     return count == 0;
+  }
+
+  public boolean canTransform(String start, String end) {
+    int l = 0, r = 0;
+    for (int i = 0; i < start.length(); i++) {
+      if (start.charAt(i) == 'L') l++;
+      if (start.charAt(i) == 'R') r++;
+      if (end.charAt(i) == 'L') l--;
+      if (end.charAt(i) == 'R') r --;
+
+      System.out.print("L "+ l);
+      System.out.print(" R "+ r);
+      if (l > 0 || r < 0 || ( l < 0 && r != 0) || (r > 0 && l != 0)) return false;
+      System.out.println();
+    }
+
+
+    return l == 0 && r == 0;
   }
 
 

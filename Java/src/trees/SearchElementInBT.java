@@ -8,7 +8,7 @@ public class SearchElementInBT {
 			return false;
 		}
 
-		if (treeNode.data == element) {
+		if (treeNode.val == element) {
 			return true;
 		}
 

@@ -22,7 +22,7 @@ public class ConnectNodesAtSameLevel {
 	private static void printAllNodesNextRight(TreeNode root) {
 		if(root == null) return;
 		
-		System.out.println(root.data +" ==> "+root.nextRight);
+		System.out.println(root.val +" ==> "+root.nextRight);
 		printAllNodesNextRight(root.left);
 		printAllNodesNextRight(root.right);
 	}
@@ -49,9 +49,9 @@ public class ConnectNodesAtSameLevel {
 				
 				if (nextR != null) {
 					treeNode.nextRight = nextR;
-					System.out.print("\n Next Right of  " + treeNode.data + " is : " + nextR.data);
+					System.out.print("\n Next Right of  " + treeNode.val + " is : " + nextR.val);
 				} else {
-					System.out.print("\n Next Right of  " + treeNode.data + " is : " + -1);
+					System.out.print("\n Next Right of  " + treeNode.val + " is : " + -1);
 				}
 
 				if (null != treeNode.left) {

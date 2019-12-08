@@ -35,7 +35,7 @@ public class FlipEquivalentBinaryTrees {
       return true;
     }
 
-    if (root1 == null || root2 == null || root1.data != root2.data) {
+    if (root1 == null || root2 == null || root1.val != root2.val) {
       return false;
     }
 
@@ -55,10 +55,10 @@ public class FlipEquivalentBinaryTrees {
 
   private static void dfs(TreeNode root, ArrayList<Integer> al) {
     if (root != null) {
-      al.add(root.data);
+      al.add(root.val);
 
-      int lv = root.left != null ? root.left.data : -1;
-      int rv = root.right != null ? root.right.data : -1;
+      int lv = root.left != null ? root.left.val : -1;
+      int rv = root.right != null ? root.right.val : -1;
 
       if (lv < rv) {
         al.add(lv);

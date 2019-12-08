@@ -30,7 +30,7 @@ public class PrintNodesAtSameLevel {
 			while (size-- > 0) {
 
 				TreeNode treeNode = q.poll();
-				System.out.print(" "+ treeNode.data + " ");
+				System.out.print(" "+ treeNode.val + " ");
 
 				if (null != treeNode.left) {
 					q.add(treeNode.left);

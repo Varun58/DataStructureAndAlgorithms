@@ -16,13 +16,13 @@ public class BTtoDoublyLinkedList {
 		head.left = prev;
 
 		while (curr.right != head) {
-			System.out.println(curr.data);
+			System.out.println(curr.val);
 			curr = curr.right;
 		}
 
-		System.out.println(curr.data);
+		System.out.println(curr.val);
 
-		System.out.println("prev" + prev.data);
+		System.out.println("prev" + prev.val);
 
 	}
 

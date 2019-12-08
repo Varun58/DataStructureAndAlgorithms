@@ -10,8 +10,8 @@ public class MaximumValueInBT {
 	public static void getMax(TreeNode treeNode) {
 		if (treeNode == null)
 			return;
-		if (treeNode.data > max) {
-			max = treeNode.data;
+		if (treeNode.val > max) {
+			max = treeNode.val;
 		}
 		getMax(treeNode.left);
 		getMax(treeNode.right);
@@ -29,8 +29,8 @@ public class MaximumValueInBT {
 			/*
 			 * if (qnode == null) { continue; }
 			 */
-			if (qnode.data > max) {
-				max = qnode.data;
+			if (qnode.val > max) {
+				max = qnode.val;
 			}
 
 			if (qnode.left != null) {

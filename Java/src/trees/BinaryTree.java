@@ -21,7 +21,7 @@ public class BinaryTree {
 
 	static void print(TreeNode treeNode) {
 		if (treeNode != null) {
-			System.out.print(treeNode.data+ " ");
+			System.out.print(treeNode.val + " ");
 			print(treeNode.left);
 			print(treeNode.right);
 		}
@@ -42,18 +42,18 @@ public class BinaryTree {
 }
 
 class TreeNode {
-	int data;
+	int val;
 	TreeNode left;
 	TreeNode right;
 	TreeNode nextRight;
 
-	public TreeNode(int data) {
-		this.data = data;
+	public TreeNode(int val) {
+		this.val = val;
 	}
 
 	@Override
 	public String toString() {
-		return "Node [data=" + data + ", left=" + left + ", right=" + right + "]";
+		return "Node [data=" + val + ", left=" + left + ", right=" + right + "]";
 	}
 
 }
