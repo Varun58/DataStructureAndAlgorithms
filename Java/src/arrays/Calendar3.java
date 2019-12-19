@@ -5,6 +5,7 @@ import java.util.TreeMap;
 class Calendar3 {
 
   TreeMap<Integer, Integer> booked;
+
   public Calendar3() {
     booked = new TreeMap<>();
   }
@@ -14,7 +15,7 @@ class Calendar3 {
     booked.put(end, booked.getOrDefault(end, 0) - 1);
 
     int activeEvents = 0, maxActive = 0;
-    for(int f: booked.values()) {
+    for (int f : booked.values()) {
       maxActive = Math.max(maxActive, activeEvents += f);
     }
     return maxActive;
