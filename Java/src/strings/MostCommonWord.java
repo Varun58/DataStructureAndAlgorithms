@@ -8,6 +8,7 @@ import java.util.Set;
 
 public class MostCommonWord {
 
+  // O(P+B)
   public String mostCommonWord(String paragraph, String[] banned) {
     paragraph += ".";
 
