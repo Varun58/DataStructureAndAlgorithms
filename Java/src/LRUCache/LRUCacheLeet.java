@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class LRUCacheLeet {
 
+  // O(1) GET, O(1) PUT , DELETE O(1)
   private Map<Integer, DLinkedNode> cache = new HashMap<>();
   private int size;
   private int capacity;
