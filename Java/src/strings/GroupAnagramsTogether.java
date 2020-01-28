@@ -8,40 +8,58 @@ import java.util.Map;
 
 public class GroupAnagramsTogether {
 
-	
-	public static List<List<String>> groupAnagramTogetherUsingSortingAndHashmap(String[]  words){
-		
-		if(words ==  null || words.length == 0 ) return null;
-		
-		Map<String,List<String>> anagramMap = new HashMap<String,List<String>>();
-		
-		for(String word: words) {
-			char[] charArr = word.toCharArray();
-			/*Arrays.sort(charArr);*/
-			char[]  countArr = new char[26];
-			
-			for(int i = 0;i<charArr.length;i++) {
-				countArr[charArr[i]-'a']++;
-			}
-			
-			/*String sortedWord = new String(charArr);*/
-			
-			String countWord = new String(countArr);
-			
-			if(anagramMap.containsKey(countWord)) {
-				List<String> groups = anagramMap.get(countWord);
-				groups.add(word);
-				anagramMap.put(countWord, groups);
-			}else {
-				List<String> group = new ArrayList<String>();
-				group.add(word);
-				anagramMap.put(countWord, group);
-			}
-			
-			
+	public List<List<String>> groupAnagrams(String[] strs) {
+		if(strs == null | strs.length == 0) {
+			return new ArrayList<>();
 		}
-		
-		return new ArrayList<List<String>>(anagramMap.values());
+
+		// TIME COMPLEXITY : O(NK)
+		// SPACE COMPLEXITY: O(NK)
+		Map<String, List<String>> ans = new HashMap<>();
+		int[] count = new int[26];
+		StringBuilder sb = new StringBuilder();
+		for(String str: strs) {
+			Arrays.fill(count, 0);
+
+			for(int i = 0;i<str.length();i++) {
+				count[str.charAt(i) - 'a']++;
+			}
+
+			for(int i = 0;i<26;i++) {
+				sb.append('#');
+				sb.append(count[i]);
+			}
+
+			String strValue = sb.toString();
+			if(!ans.containsKey(strValue)) {
+				ans.put(strValue, new ArrayList<String>());
+			}
+			ans.get(strValue).add(str);
+			sb = new StringBuilder();
+		}
+
+		return new ArrayList<>(ans.values());
+	}
+
+	// TIME COMPLEXITY : O(NKLOGK)
+	// SPACE COMPLEXITY: O(NK)
+	public List<List<String>> groupAnagrams2(String[] strs) {
+		if(strs == null | strs.length == 0) {
+			return new ArrayList<>();
+		}
+
+		Map<String, List<String>> ans = new HashMap<>();
+		for(String str: strs) {
+			char[] ca = str.toCharArray();
+			Arrays.sort(ca);
+			String strValue = String.valueOf(ca);
+			if(!ans.containsKey(strValue)) {
+				ans.put(strValue, new ArrayList<String>());
+			}
+			ans.get(strValue).add(str);
+		}
+
+		return new ArrayList<>(ans.values());
 	}
 	
 	//http://www.programcreek.com/2014/04/leetcode-anagrams-java/

@@ -14,8 +14,8 @@ public class RotateMatrixBy90Degrees {
 		printMatrix(rotateMatrixBy90DegreeAntiClockWise(image));
 
 		// Rotate N*N matrix INPlace
+		int image2[][] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
 
-		int image2[][] = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
 		System.out.println("Before INPLACE Transformation : ");
 		printMatrix(image2);
 
