@@ -24,6 +24,15 @@ public class MissingNumberInArray {
 		return actSum - arrSum;
 	}
 
+	// better solution for XOR
+	public int missingNumber(int[] nums) {
+		int expectedNum  = nums.length;
+		for(int i=0;i < nums.length;i++) {
+			expectedNum ^= i ^ nums[i];
+		}
+		return expectedNum;
+	}
+
 	static int missingNumberUsingXOR(int arr[]) {
 		int xor1 = arr[0];
 		for (int i = 1; i < arr.length; i++) {
