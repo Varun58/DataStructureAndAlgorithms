@@ -32,4 +32,33 @@ public class LongestPalindromeSubstring {
     }
     return R - L - 1;
   }
+
+  public  String longestPalindromeBrute(String input) {
+    String longestP = "";
+
+    for (int i = 0; i < input.length(); i++) {
+      for (int j = i +1; j <= input.length(); j++) {
+        //System.out.println(input.substring(i, j));
+
+        String inputSubstring = input.substring(i, j);
+
+        if(isPalindrome(inputSubstring)
+            && longestP.length() <= inputSubstring.length()) {
+          longestP = inputSubstring;
+        }
+      }
+    }
+    return longestP;
+  }
+
+  public  boolean isPalindrome(String s) {
+
+    for (int i = 0; i < s.length(); i++) {
+      if (s.charAt(i) != s.charAt(s.length() - i - 1)) {
+        return false;
+      }
+    }
+
+    return true;
+  }
 }
