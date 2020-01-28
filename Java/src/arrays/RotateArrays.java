@@ -13,7 +13,7 @@ public class RotateArrays {
     rotateArrayBy90Degree(arr);
   }
 
-  public static int[][] rotateArrayBy90Degree(int arr[][]) {
+  public static int[][] rotateArrayBy90Degree(int[][] arr) {
     int n = arr.length;
 
     // transpose
@@ -36,7 +36,7 @@ public class RotateArrays {
     return arr;
   }
 
-  public static int[][] rotateArrayBy90Degree2(int arr[][]) {
+  public static int[][] rotateArrayBy90Degree2(int[][] arr) {
     int n = arr.length - 1;
 
     for (int i = 0; i < n / 2; i++) {
